@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import axios from 'axios'
 import './assets/main.css'
+import 'sweetalert2/dist/sweetalert2.min.css'
 
 // Configurar o Axios
 axios.defaults.baseURL = 'https://dummyjson.com'
