@@ -1,8 +1,8 @@
 <template>
-  <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
+  <div class="min-h-screen bg-slate-900">
     <Navbar @search="handleSearch" @toggle-cart="toggleCart" :cart-item-count="cartItemCount" />
 
-    <main class="container mx-auto px-4 py-8">
+    <main class="container mx-auto px-4 py-8 pt-16">
       <router-view @add-to-cart="addToCart"></router-view>
     </main>
 

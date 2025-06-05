@@ -1,35 +1,32 @@
 <template>
-  <div>
-    <!-- Botão Voltar para Home -->
-    <div class="container mx-auto px-4 py-4">
-      <button @click="goToHome" class="text-primary hover:underline flex items-center">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
-          <path fill-rule="evenodd"
-            d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
-            clip-rule="evenodd" />
-        </svg>
-        Voltar para Todos os Produtos
-      </button>
-    </div>
+  <div class="min-h-screen bg-slate-900 py-8">
+    <div class="container mx-auto px-4">
+      <div v-if="loading" class="flex justify-center items-center min-h-[60vh]">
+        <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+      </div>
 
-    <div v-if="loading" class="flex justify-center items-center h-64">
-      <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
-    </div>
+      <div v-else-if="product" class="bg-slate-800 rounded-xl shadow-xl overflow-hidden">
+        <button @click="goBack"
+          class="flex items-center text-blue-500 hover:text-blue-400 transition-colors duration-200 px-6 pt-2 pb-0">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd"
+              d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+              clip-rule="evenodd" />
+          </svg>
+          Voltar
+        </button>
+        <ProductDetail :product="product" @add-to-cart="handleAddToCart" class="mt-2" />
+      </div>
 
-    <div v-else-if="error" class="text-center py-8">
-      <p class="text-red-500">{{ error }}</p>
-      <button @click="loadProduct"
-        class="mt-4 bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary transition-colors duration-300">
-        Tentar Novamente
-      </button>
+      <div v-else class="text-center py-12">
+        <p class="text-slate-400 text-lg">Produto não encontrado</p>
+      </div>
     </div>
-
-    <ProductDetail v-else :product="product" @add-to-cart="handleAddToCart" />
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, defineEmits } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import axios from 'axios'
 import ProductDetail from '../components/ProductDetail.vue'
@@ -39,6 +36,8 @@ const router = useRouter()
 const product = ref(null)
 const loading = ref(true)
 const error = ref(null)
+
+const emit = defineEmits(['add-to-cart'])
 
 const loadProduct = async () => {
   loading.value = true
@@ -56,12 +55,11 @@ const loadProduct = async () => {
 }
 
 const handleAddToCart = (product) => {
-  // Emitir evento para o componente pai
   emit('add-to-cart', product)
 }
 
-const goToHome = () => {
-  router.push('/')
+const goBack = () => {
+  router.back()
 }
 
 onMounted(() => {

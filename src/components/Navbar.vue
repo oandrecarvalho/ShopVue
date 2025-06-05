@@ -1,52 +1,47 @@
 <template>
-  <nav class="bg-white shadow-lg dark:bg-gray-800 dark:shadow-none">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between h-16">
-        <div class="flex">
-          <div class="flex-shrink-0 flex items-center">
-            <h1 class="text-2xl font-bold text-primary dark:text-white">E-Commerce</h1>
-          </div>
-        </div>
+  <!-- Header fixo com efeito de blur -->
+  <header class="fixed top-0 left-0 right-0 bg-slate-900/70 backdrop-blur z-50">
+    <nav class="container mx-auto px-4 py-4">
+      <div class="flex items-center justify-between">
+        <!-- Logo da loja -->
+        <router-link to="/" class="text-3xl font-bold tracking-wide text-slate-50">
+          ShopVue
+        </router-link>
 
-        <!-- Barra de Pesquisa -->
-        <div class="flex-1 flex items-center justify-center px-2 lg:ml-6 lg:justify-end">
-          <div class="max-w-lg w-full lg:max-w-xs">
-            <div class="relative">
-              <input type="text" v-model="searchQuery" @input="handleSearch"
-                class="w-full bg-gray-100 rounded-lg pl-10 pr-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
-                placeholder="Buscar produtos..." />
-              <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <svg class="h-5 w-5 text-gray-400 dark:text-gray-500" fill="none" stroke="currentColor"
-                  viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-              </div>
-            </div>
+        <!-- Área de busca e carrinho -->
+        <div class="flex items-center space-x-6">
+          <!-- Campo de busca -->
+          <div class="relative">
+            <input type="text" v-model="searchQuery" @input="handleSearch" placeholder="Buscar produtos..."
+              class="bg-slate-800 text-slate-50 px-4 py-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 w-64" />
           </div>
-        </div>
 
-        <!-- Carrinho -->
-        <div class="flex items-center">
-          <button @click="toggleCart"
-            class="p-2 rounded-full text-gray-600 hover:text-primary focus:outline-none relative dark:text-gray-300 dark:hover:text-primary">
-            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-            </svg>
+          <!-- Ícone do carrinho com contador -->
+          <div class="relative">
+            <button @click="toggleCart" class="text-slate-50 hover:text-blue-500 transition-colors duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+            </button>
+            <!-- Badge com quantidade de itens -->
             <span v-if="cartItemCount > 0"
-              class="absolute -top-1 -right-1 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white transform translate-x-1/2 -translate-y-1/2 bg-primary rounded-full">
+              class="absolute -top-2 -right-2 bg-blue-600 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
               {{ cartItemCount }}
             </span>
-          </button>
+          </div>
         </div>
       </div>
-    </div>
-  </nav>
+    </nav>
+  </header>
 </template>
 
 <script setup>
 import { ref, defineProps, defineEmits } from 'vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 
 const props = defineProps({
   cartItemCount: {
