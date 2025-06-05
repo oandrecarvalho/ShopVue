@@ -91,8 +91,8 @@ npm run build
 
 ## 👥 Autores
 
-- [Luiz Henrique Costa](https://github.com/lorocks51987)
-- [André Luis Carvalho](https://github.com/oandrecarvalho)
+- [Luiz Henrique Costa](https://github.com/lorocks51987) - 1987381
+- [André Luis Carvalho](https://github.com/oandrecarvalho) - 1996932
 
 ## 📄 Licença
 
