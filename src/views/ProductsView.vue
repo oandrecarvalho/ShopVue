@@ -1,4 +1,4 @@
-<template>
+  <template>
   <div>
     <!-- Botão Voltar para Home (visível quando uma categoria está selecionada ou há busca) -->
     <div v-if="selectedCategory || route.query.q" class="container px-4 pt-4 mx-auto">
