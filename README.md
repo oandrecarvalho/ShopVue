@@ -1,61 +1,106 @@
-# Catálogo de E-commerce
+# ShopVue - E-commerce com Vue.js
 
-Este projeto consiste em um catálogo de produtos de e-commerce desenvolvido utilizando Vue.js 3, Vite, Axios e TailwindCSS, consumindo a API DummyJSON.
+![Vue.js](https://img.shields.io/badge/Vue.js-3.x-4FC08D?style=for-the-badge&logo=vue.js&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.x-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-4.x-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 
-## Funcionalidades
+## 📝 Descrição
 
-- Listagem de produtos com visualização em grid e paginação.
-- Visualização de detalhes de cada produto.
-- Navegação por categorias de produtos.
-- Busca de produtos por nome.
-- Carrinho de compras (funcionalidade opcional implementada).
-- Ordenação de produtos por diferentes critérios (funcionalidade opcional implementada).
-- Interface responsiva com tema claro e escuro.
+ShopVue é uma aplicação de e-commerce moderna desenvolvida com Vue.js 3, Vite, Axios e TailwindCSS. A aplicação consome a API DummyJSON para exibir produtos, permitindo aos usuários navegar por categorias, buscar produtos, visualizar detalhes e gerenciar um carrinho de compras.
 
-## Tecnologias Utilizadas
+## ✨ Funcionalidades
 
-- Vue.js 3
-- Vite (como bundler)
-- Axios (para consumo da API)
-- TailwindCSS (para estilização)
-- Vue Router (para navegação entre páginas)
+- **Listagem de Produtos**
+  - Grid responsivo de produtos
+  - Exibição de nome, imagem, preço, categoria e estoque
+  - Paginação para navegação entre produtos
 
-## Como Rodar a Aplicação Localmente
+- **Categorias**
+  - Menu lateral com todas as categorias disponíveis
+  - Filtragem de produtos por categoria
+  - Navegação intuitiva
 
-1. Clone este repositório:
+- **Busca de Produtos**
+  - Busca em tempo real
+  - Filtragem instantânea de produtos
+  - Resultados atualizados conforme digitação
 
+- **Detalhes do Produto**
+  - Página dedicada com informações completas
+  - Imagens em alta resolução
+  - Descrição detalhada
+  - Informações de estoque e preço
+
+- **Carrinho de Compras**
+  - Adição e remoção de produtos
+  - Ajuste de quantidades
+  - Cálculo automático do total
+  - Persistência dos dados no localStorage
+  - Confirmações com SweetAlert2
+
+## 🚀 Tecnologias Utilizadas
+
+- **Vue.js 3** - Framework JavaScript progressivo
+- **Vite** - Build tool e servidor de desenvolvimento
+- **TailwindCSS** - Framework CSS utilitário
+- **Axios** - Cliente HTTP para requisições à API
+- **Vue Router** - Roteamento oficial do Vue.js
+- **SweetAlert2** - Biblioteca para alertas e confirmações
+
+## 🛠️ Instalação e Execução
+
+1. Clone o repositório:
 ```bash
-git clone [URL_DO_SEU_REPOSITÓRIO]
+git clone https://github.com/oandrecarvalho/ShopVue.git
+cd ShopVue
 ```
 
-2. Navegue até o diretório do projeto:
-
-```bash
-cd CatalogoEcommerceP2
-```
-
-3. Instale as dependências:
-
+2. Instale as dependências:
 ```bash
 npm install
 ```
 
-4. Inicie o servidor de desenvolvimento:
-
+3. Execute o projeto em modo de desenvolvimento:
 ```bash
 npm run dev
 ```
 
-A aplicação estará disponível em `http://localhost:5173`.
+4. Para build de produção:
+```bash
+npm run build
+```
 
-## Prints das Telas
+## 📱 Screenshots
 
-<!-- Adicione aqui prints das telas principais da aplicação (listagem, detalhes, carrinho, busca, etc.) -->
+### Listagem de Produtos
+![Listagem de Produtos](screenshots/products.png)
 
-## Vídeo de Demonstração
 
-<!-- Adicione aqui o link para o vídeo de demonstração no YouTube -->
+### Detalhes do Produto
+![Detalhes do Produto](screenshots/product-details.png)
 
-## Autores
+### Carrinho de Compras
+![Carrinho de Compras](screenshots/cart.png)
 
-<!-- Adicione os nomes dos membros da dupla aqui --> 
+### Busca e Categorias
+![Busca e Categorias](screenshots/search-categories.png)
+
+## 🎥 Vídeo de Demonstração
+
+[Link para o vídeo no YouTube](https://youtu.be/DbpQrc_BUDE)
+
+## 👥 Autores
+
+- [Luiz Henrique Costa](https://github.com/lorocks51987)
+- [André Luis Carvalho](https://github.com/oandrecarvalho)
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+## 🙏 Agradecimentos
+
+- [DummyJSON](https://dummyjson.com/) pela API de produtos
+- [Vue.js](https://vuejs.org/) pelo framework incrível
+- [TailwindCSS](https://tailwindcss.com/) pela estilização
+- [Vite](https://vitejs.dev/) pela ferramenta de build 
